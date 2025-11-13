@@ -23,6 +23,8 @@
  * License: MIT
  */
 
+#include <Arduino.h>
+
 // ==================== ค่าคงที่ ====================
 const int BUTTON_PIN = 4;
 const int LED_PIN = 2;
@@ -47,7 +49,7 @@ int pressCount = 0;
  * - แค่จำเวลาและตั้งธง
  * - ให้ loop() ไปตรวจสอบต่อ
  */
-void IRAM_ATTR handleButtonInterrupt() {
+void ARDUINO_ISR_ATTR handleButtonInterrupt() {
   rawInterruptFlag = true;
   rawInterruptTime = millis();
 }

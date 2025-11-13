@@ -23,6 +23,8 @@
  * License: MIT
  */
 
+#include <Arduino.h>
+
 // ==================== ค่าคงที่ ====================
 const int BUTTON_PIN = 4;  // ปุ่มกด
 const int LED_PIN = 2;     // LED (Built-in บน ESP32)
@@ -44,7 +46,7 @@ const unsigned long DEBOUNCE_TIME = 150;
  * 3. ทำงานสั้น เร็ว
  * 4. แค่ตั้งธง (flag) แล้วไปประมวลผลใน loop()
  */
-void IRAM_ATTR handleButtonPress() {
+void ARDUINO_ISR_ATTR handleButtonPress() {
   unsigned long now = millis();
   
   // Software debounce แบบง่าย - เช็คว่าห่างจากครั้งก่อนพอหรือยัง

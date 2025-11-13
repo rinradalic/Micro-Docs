@@ -1,7 +1,7 @@
 /*
  * HardwareDebounce_Comparison
  * 
- * : Interrupts + Advanced Button
+ * EP7.1: Interrupts + Advanced Button
  * เปรียบเทียบ Software Debounce vs Hardware Debounce (RC Filter)
  * 
  * แนวคิด:
@@ -38,6 +38,7 @@
  * License: MIT
  */
 
+#include <Arduino.h>
 #include <Button.h>
 
 // ==================== ค่าคงที่ ====================
@@ -69,7 +70,7 @@ unsigned long lastButton1Event = 0;
 unsigned long lastButton2Event = 0;
 
 // ==================== ISR Functions ====================
-void IRAM_ATTR button1ISR() {
+void ARDUINO_ISR_ATTR button1ISR() {
   button1RawEvents++;
   unsigned long now = millis();
   if (now - lastButton1Event < 10) {  // ถ้าเกิดซ้ำภายใน 10ms = bounce
@@ -78,7 +79,7 @@ void IRAM_ATTR button1ISR() {
   lastButton1Event = now;
 }
 
-void IRAM_ATTR button2ISR() {
+void ARDUINO_ISR_ATTR button2ISR() {
   button2RawEvents++;
   unsigned long now = millis();
   if (now - lastButton2Event < 10) {  // ถ้าเกิดซ้ำภายใน 10ms = bounce
@@ -93,7 +94,7 @@ void setup() {
   delay(500);
   
   Serial.println("===============================================");
-  Serial.println("  : Hardware Debounce Comparison");
+  Serial.println("  EP7.1: Hardware Debounce Comparison");
   Serial.println("===============================================");
   Serial.println();
   Serial.println("วงจร:");
