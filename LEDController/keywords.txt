@@ -1,0 +1,10 @@
+LEDController	KEYWORD1
+begin	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
+toggle	KEYWORD2
+startBlink	KEYWORD2
+stopBlink	KEYWORD2
+update	KEYWORD2
+isOn	KEYWORD2
+
