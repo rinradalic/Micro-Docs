@@ -1,0 +1,7 @@
+PotentiometerController	KEYWORD1
+begin	KEYWORD2
+read	KEYWORD2
+readPercent	KEYWORD2
+readMapped	KEYWORD2
+getRaw	KEYWORD2
+getMaxRaw	KEYWORD2

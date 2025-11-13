@@ -101,6 +101,40 @@ void loop() {
 
 ---
 
+### 4. PotentiometerController
+Analog input library for reading potentiometers (VR) with built-in mapping and PWM control examples.
+
+**Features:**
+- Simple ADC reading with automatic platform detection
+- Built-in percentage conversion (0-100%)
+- Custom range mapping
+- Examples for LED brightness control via PWM
+- Designed for EP4 curriculum (analog control with VR)
+
+**Quick Example:**
+```cpp
+#include <PotentiometerController.h>
+
+PotentiometerController vr(34); // GPIO34 (ADC)
+
+void setup() {
+  Serial.begin(115200);
+  vr.begin();
+}
+
+void loop() {
+  int percent = vr.readPercent();
+  Serial.print("VR Position: ");
+  Serial.print(percent);
+  Serial.println("%");
+  delay(200);
+}
+```
+
+[Full documentation →](PotentiometerController/README.md)
+
+---
+
 ## Installation
 
 ### Arduino IDE
@@ -111,6 +145,7 @@ void loop() {
    cp -r LEDController ~/Arduino/libraries/
    cp -r Button ~/Arduino/libraries/
    cp -r RelayController ~/Arduino/libraries/
+   cp -r PotentiometerController ~/Arduino/libraries/
    ```
 3. Restart Arduino IDE
 4. Open examples via **File → Examples → [Library Name]**
@@ -124,6 +159,7 @@ lib_deps =
     file:///path/to/Micro-Docs/LEDController
     file:///path/to/Micro-Docs/Button
     file:///path/to/Micro-Docs/RelayController
+    file:///path/to/Micro-Docs/PotentiometerController
 ```
 
 Or use symbolic links:
@@ -132,7 +168,7 @@ cd your-project/lib
 ln -s /path/to/Micro-Docs/LEDController
 ln -s /path/to/Micro-Docs/Button
 ln -s /path/to/Micro-Docs/RelayController
-ln -s /path/to/Micro-Docs/Button
+ln -s /path/to/Micro-Docs/PotentiometerController
 ```
 
 ---
@@ -170,6 +206,19 @@ Micro-Docs/
 │   │   ├── RelayBasicExample/
 │   │   ├── RelayButtonControl/
 │   │   └── RelayTemperatureControl/
+│   ├── library.properties
+│   ├── README.md
+│   └── keywords.txt
+│
+├── PotentiometerController/
+│   ├── src/
+│   │   ├── PotentiometerController.h
+│   │   └── PotentiometerController.cpp
+│   ├── examples/
+│   │   ├── VR_BasicReading/
+│   │   ├── VR_LED_Brightness/
+│   │   ├── VR_DualLED_Control/
+│   │   └── VR_RunningLight_Speed/
 │   ├── library.properties
 │   ├── README.md
 │   └── keywords.txt
@@ -261,6 +310,7 @@ Each library includes example sketches in the `examples/` directory.
 - **LEDController**: Any board with LED_BUILTIN or external LED on a GPIO pin
 - **Button**: A push button connected to a GPIO pin (with or without external pull-up)
 - **RelayController**: Relay module OR transistor (NPN) + relay coil + flyback diode + resistor
+- **PotentiometerController**: Potentiometer (VR) connected to ADC pin (use 3.3V on ESP32!)
 
 ---
 
@@ -301,6 +351,18 @@ Each library includes example sketches in the `examples/` directory.
 | `void toggle()` | Toggle relay state |
 | `bool isOn() const` | Returns true if relay is ON |
 | `void setState(bool state)` | Set relay to specific state |
+
+### PotentiometerController
+
+| Method | Description |
+|--------|-------------|
+| `PotentiometerController(uint8_t pin)` | Constructor with ADC pin |
+| `void begin()` | Initialize (optional on most platforms) |
+| `int read()` | Read raw ADC value (0-4095 ESP32, 0-1023 Arduino) |
+| `int readPercent()` | Read as percentage (0-100%) |
+| `int readMapped(int min, int max)` | Read and map to custom range |
+| `int getRaw() const` | Get last raw value without reading |
+| `int getMaxRaw() const` | Get ADC resolution (4095 or 1023) |
 
 ---
 
