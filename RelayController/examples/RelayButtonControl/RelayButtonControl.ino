@@ -5,7 +5,7 @@
  * Uses debounced Button class from Button library.
  * 
  * Hardware:
- * - ICON-32 (ESP32) or Arduino
+ * - (ESP32) or Arduino
  * - Relay module or transistor-driven relay on pin 26
  * - Push button on pin 4 (with internal pullup)
  * - Optional: Load connected to relay (LED, fan, etc.)

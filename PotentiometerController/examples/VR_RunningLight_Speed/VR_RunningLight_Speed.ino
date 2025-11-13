@@ -2,25 +2,14 @@
  * VR_RunningLight_Speed
  * 
  * Control running light speed using VR (potentiometer).
- * Combines EP2 (running lights) with EP4 (analog control).
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - VR → GPIO 34 (ADC)
  * - LED1 → GPIO 2
  * - LED2 → GPIO 4
  * - LED3 → GPIO 5
  * - LED4 → GPIO 18
  * (Each LED via 220Ω resistor to GND)
- * 
- * Behavior:
- * - VR low → slow running light
- * - VR high → fast running light
- * - Delay ranges from 50ms to 1000ms
- * 
- * Learning objectives (EP4):
- * - Use VR to control timing
- * - Combine multiple concepts
- * - Practical application of analog input
  */
 
 #include <PotentiometerController.h>

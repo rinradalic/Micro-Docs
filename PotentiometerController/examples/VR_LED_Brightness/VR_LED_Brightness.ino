@@ -4,7 +4,7 @@
  * Control LED brightness using potentiometer (VR) and PWM.
  * Demonstrates analog-to-PWM conversion on ESP32.
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - VR Pin 1 → 3.3V
  * - VR Pin 2 (Center/Wiper) → GPIO 34 (ADC pin)
  * - VR Pin 3 → GND
@@ -25,12 +25,6 @@
  * Behavior:
  * - Rotate VR clockwise → LED brighter
  * - Rotate VR counter-clockwise → LED dimmer
- * 
- * Learning objectives (EP4):
- * - Understand PWM (Pulse Width Modulation)
- * - Use ledcSetup(), ledcAttachPin(), ledcWrite() on ESP32
- * - Map analog input to PWM output
- * - See relationship: Analog voltage → Digital value → PWM → Brightness
  */
 
 #include <PotentiometerController.h>

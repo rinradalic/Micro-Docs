@@ -5,7 +5,7 @@
  * Listen for the "click" sound from the relay.
  * 
  * Hardware:
- * - ICON-32 (ESP32) or Arduino
+ * - (ESP32) or Arduino
  * - Relay module or transistor-driven relay on pin 26
  * - Optional: LED on relay to see state visually
  * 
@@ -22,7 +22,7 @@
 
 #include <RelayController.h>
 
-const int RELAY_PIN = 26; // GPIO26 on ESP32 (ICON-32)
+const int RELAY_PIN = 26; // GPIO26 on ESP32 (ESP32)
 
 RelayController relay(RELAY_PIN);
 

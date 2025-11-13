@@ -1,6 +1,6 @@
 # PotentiometerController
 
-Analog input library for reading potentiometers (VR - Variable Resistor) on ESP32/Arduino. Designed for EP4 curriculum - Analog Control with VR.
+Analog input library for reading potentiometers (VR - Variable Resistor) on ESP32/Arduino. Designed for Analog Control with VR.
 
 ## Features
 
@@ -50,12 +50,12 @@ Wiper voltage: 0V to 3.3V
 ADC reading:   0 to 4095 (ESP32) or 0 to 1023 (Arduino)
 ```
 
-## Hardware Connection (ESP32/ICON-32)
+## Hardware Connection (ESP32)
 
 ### ⚠️ Important: Use 3.3V, NOT 5V on ESP32!
 
 ```
-ESP32 (ICON-32)
+ESP32 (ESP32)
 ┌────────────┐
 │ 3.3V ──────┼──► VR Pin 1
 │            │
@@ -218,17 +218,6 @@ Control running light speed with VR.
 **Hardware**: VR on GPIO 34, 4 LEDs on GPIO 2, 4, 5, 18
 
 **Skills**: Combining concepts, timing control
-
-## Learning Objectives (EP4)
-
-After completing EP4, students will be able to:
-
-- ✅ Explain what a VR/potentiometer is and its function
-- ✅ Understand voltage divider concept
-- ✅ Read analog values from ESP32 ADC pins
-- ✅ Use `analogRead()` and `map()` functions
-- ✅ Control LED brightness using PWM
-- ✅ Understand relationship: Analog voltage → Digital value → PWM → Brightness
 
 ## Key Functions Summary
 

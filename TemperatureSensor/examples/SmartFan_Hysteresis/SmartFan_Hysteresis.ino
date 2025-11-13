@@ -4,13 +4,13 @@
  * Automatic fan control based on temperature with hysteresis.
  * Uses DHT11 + RelayController to control a fan via transistor driver circuit.
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - DHT11 → GPIO 4 (DATA pin)
- * - Relay control → GPIO 26 (via transistor driver - see EP3)
+ * - Relay control → GPIO 26 (via transistor driver)
  * - LED indicator → GPIO 2 (shows fan status)
  * - 6V fan connected via relay (NO contact)
  * 
- * Transistor Driver Circuit (from EP3):
+ * Transistor Driver Circuit:
  *   GPIO26 ──[1kΩ]──► Base (NPN transistor)
  *                      Collector → Relay Coil (-)
  *                      Emitter → GND
@@ -26,11 +26,6 @@
  * - Fan turns ON when temp >= 30°C
  * - Fan turns OFF when temp <= 28°C
  * - This prevents rapid on/off cycling
- * 
- * Learning objectives (EP5):
- * - Combine DHT11 with relay control
- * - Understand hysteresis concept
- * - Build automatic control system
  */
 
 #include <TemperatureSensor.h>

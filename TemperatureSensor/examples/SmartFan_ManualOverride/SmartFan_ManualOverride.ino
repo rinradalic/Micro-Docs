@@ -7,7 +7,7 @@
  * 
  * Press button to switch between modes.
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - DHT11 → GPIO 4
  * - Relay → GPIO 26 (transistor driver circuit)
  * - Button → GPIO 5 (with internal pullup)
@@ -17,11 +17,6 @@
  * - LED solid ON = MANUAL mode (fan forced ON)
  * - LED blinks slow = AUTO mode, fan ON
  * - LED OFF = AUTO mode, fan OFF
- * 
- * Learning objectives (EP5):
- * - Combine multiple libraries
- * - Implement mode switching
- * - User control vs automatic control
  */
 
 #include <TemperatureSensor.h>

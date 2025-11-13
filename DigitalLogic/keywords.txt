@@ -1,0 +1,61 @@
+#######################################
+# Syntax Coloring Map For DigitalLogic
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DigitalLogic	KEYWORD1
+LogicGate	KEYWORD1
+ClockGenerator	KEYWORD1
+BCDEncoder	KEYWORD1
+CounterController	KEYWORD1
+SevenSegmentMultiplex	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+setInputs	KEYWORD2
+setA	KEYWORD2
+setB	KEYWORD2
+getA	KEYWORD2
+getB	KEYWORD2
+calculateOutput	KEYWORD2
+setFrequency	KEYWORD2
+getFrequency	KEYWORD2
+start	KEYWORD2
+stop	KEYWORD2
+isRunning	KEYWORD2
+pulse	KEYWORD2
+update	KEYWORD2
+displayDigit	KEYWORD2
+getCurrentDigit	KEYWORD2
+clear	KEYWORD2
+lampTest	KEYWORD2
+endLampTest	KEYWORD2
+reset	KEYWORD2
+singleStep	KEYWORD2
+getClock	KEYWORD2
+showNumber	KEYWORD2
+setLeadingZeros	KEYWORD2
+setDecimalPoint	KEYWORD2
+clearDecimalPoints	KEYWORD2
+setScanInterval	KEYWORD2
+showTime	KEYWORD2
+showTemperature	KEYWORD2
+getNumber	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+LOGIC_LOW	LITERAL1
+LOGIC_HIGH	LITERAL1
+GATE_AND	LITERAL1
+GATE_OR	LITERAL1
+GATE_NOT	LITERAL1
+GATE_NAND	LITERAL1
+GATE_XOR	LITERAL1

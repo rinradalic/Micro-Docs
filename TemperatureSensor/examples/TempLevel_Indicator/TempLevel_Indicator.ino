@@ -4,7 +4,7 @@
  * Multi-level temperature status indicator with 3 LEDs.
  * Shows COOL/WARM/HOT status based on temperature ranges.
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - DHT11 → GPIO 4
  * - LED Green (COOL) → GPIO 2
  * - LED Yellow (WARM) → GPIO 15
@@ -15,11 +15,6 @@
  * - COOL: < 28°C → Green LED
  * - WARM: 28-32°C → Yellow LED
  * - HOT: > 32°C → Red LED
- * 
- * Learning objectives (EP5):
- * - Multi-level threshold detection
- * - Visual status indication
- * - Practical temperature monitoring
  */
 
 #include <TemperatureSensor.h>

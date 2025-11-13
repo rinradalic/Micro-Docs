@@ -4,7 +4,7 @@
  * Basic potentiometer (VR) reading example.
  * Reads analog value and displays raw ADC value and percentage.
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - VR Pin 1 → 3.3V
  * - VR Pin 2 (Center/Wiper) → GPIO 34 (ADC pin)
  * - VR Pin 3 → GND
@@ -13,11 +13,6 @@
  * - Rotate VR clockwise → values increase
  * - Rotate VR counter-clockwise → values decrease
  * - Serial Monitor shows both raw (0-4095) and percentage (0-100%)
- * 
- * Learning objectives (EP4):
- * - Understand voltage divider concept
- * - Learn to use analogRead() on ESP32
- * - Learn to use map() function
  */
 
 #include <PotentiometerController.h>

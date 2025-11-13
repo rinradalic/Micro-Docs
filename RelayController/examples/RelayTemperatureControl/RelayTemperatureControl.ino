@@ -2,14 +2,14 @@
  * RelayTemperatureControl
  * 
  * Automatic relay control based on temperature sensor.
- * Simulates DHT11 temperature reading for EP4 preparation.
+ * Simulates DHT11 temperature.
  * 
  * Behavior:
  * - Temperature > 30°C → Relay ON (turn on fan/cooler)
  * - Temperature ≤ 30°C → Relay OFF
  * 
  * Hardware:
- * - ICON-32 (ESP32) or Arduino
+ * - (ESP32) or Arduino
  * - Relay module on pin 26
  * - DHT11/DHT22 sensor on pin 4 (requires DHT library)
  * - Load: 5V/6V fan or indicator LED

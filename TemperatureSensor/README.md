@@ -1,6 +1,6 @@
 # TemperatureSensor
 
-DHT11/DHT22 temperature and humidity sensor library with smart control features. Designed for EP5 curriculum - Smart Fan Control System.
+DHT11/DHT22 temperature and humidity sensor library with smart control features.
 
 ## Features
 
@@ -27,12 +27,12 @@ The DHT11 sensor contains:
 
 It communicates digitally via a single data pin using a proprietary protocol.
 
-## Hardware Connection (ESP32/ICON-32)
+## Hardware Connection (ESP32)
 
 ### ⚠️ Important: Use 3.3V or 5V (both work with DHT11)
 
 ```
-ICON-32          DHT11
+         DHT11
 ┌─────────┐      ┌────┐
 │ 3.3V ───┼──────┤ VCC│
 │         │      │    │
@@ -222,11 +222,11 @@ Temp = 30°C → Fan ON
 | `TEMP_WARM` | 1 | coolMax <= temp < warmMax |
 | `TEMP_HOT` | 2 | Temperature >= warmMax |
 
-## Complete Smart Fan System (EP5)
+## Complete Smart Fan System
 
 ### Hardware Requirements
 
-1. **ICON-32 (ESP32)** - Main controller
+1. **(ESP32)** - Main controller
 2. **DHT11** - Temperature sensor
 3. **NPN Transistor** (2N2222/BC547) - Relay driver
 4. **5V/6V Relay** - Switch for fan
@@ -240,7 +240,7 @@ Temp = 30°C → Fan ON
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    ICON-32 (ESP32)                      │
+│                    (ESP32)                      │
 │                                                          │
 │  3.3V ──────────────► DHT11 VCC                         │
 │  GPIO4 ─────────────► DHT11 DATA                        │
@@ -268,7 +268,7 @@ Fan Circuit (via Relay):
   NO ───────────► Fan (+)
   Fan (-) ──────► GND (Adapter)
 
-⚠️ IMPORTANT: Common GND between ICON-32 and 6V Adapter!
+⚠️ IMPORTANT: Common GND between and 6V Adapter!
 ```
 
 ## Examples
@@ -279,7 +279,7 @@ Simple temperature and humidity monitoring.
 **Skills**: DHT sensor reading, error handling
 
 ### 2. SmartFan_Hysteresis
-Automatic fan control with hysteresis (EP5 main project).
+Automatic fan control with hysteresis.
 
 **Skills**: Hysteresis logic, relay control, system integration
 
@@ -292,18 +292,6 @@ Fan control with AUTO/MANUAL mode switching via button.
 Visual temperature indicator with 3 LEDs (COOL/WARM/HOT).
 
 **Skills**: Multi-threshold detection, visual feedback
-
-## Learning Objectives (EP5)
-
-After completing EP5, students will be able to:
-
-- ✅ Explain how DHT11 sensor works
-- ✅ Read temperature and humidity from DHT11
-- ✅ Use if/else logic for automatic control
-- ✅ Apply transistor driver circuit from EP3
-- ✅ Understand and implement hysteresis
-- ✅ Build a complete Smart Fan project
-- ✅ Integrate multiple subsystems
 
 ## Troubleshooting
 

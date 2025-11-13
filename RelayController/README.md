@@ -1,6 +1,6 @@
 # RelayController
 
-A safe and simple relay control library for ESP32/Arduino projects. Designed for EP3 curriculum - relay control and transistor driver circuits.
+A safe and simple relay control library for ESP32/Arduino projects. 
 
 ## Features
 
@@ -197,7 +197,7 @@ void loop() {
 | ESP32 resets when relay switches | Add capacitor across relay coil, use separate power supply |
 | Inverted behavior (ON = OFF) | Use `RelayController(pin, true)` for active-low modules |
 
-## Pin Recommendations (ESP32/ICON-32)
+## Pin Recommendations (ESP32)
 
 - ✅ GPIO26, GPIO27, GPIO25, GPIO33 (safe for relay control)
 - ⚠️ Avoid: GPIO0, GPIO2, GPIO12, GPIO15 (boot pins)
@@ -214,7 +214,7 @@ MIT License
 
 ## Learning Resources
 
-- EP3 Curriculum: Relay Control & Transistor Driver Circuit
+- Relay Control & Transistor Driver Circuit
 - Understanding NPN transistors as switches
 - Flyback diode protection explained
 - Safe handling of AC loads

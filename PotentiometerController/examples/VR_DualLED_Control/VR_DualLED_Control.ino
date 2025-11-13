@@ -5,7 +5,7 @@
  * - LED1: Normal brightness (follows VR position)
  * - LED2: Inverted brightness (opposite of VR position)
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - VR → GPIO 34 (ADC)
  * - LED1 → GPIO 2 (via 220Ω resistor)
  * - LED2 → GPIO 4 (via 220Ω resistor)
@@ -17,11 +17,6 @@
  * Behavior:
  * - VR high → LED1 bright, LED2 dim
  * - VR low → LED1 dim, LED2 bright
- * 
- * Learning objectives (EP4):
- * - Multiple PWM channels
- * - Inverted/reversed mapping
- * - Complementary outputs
  */
 
 #include <PotentiometerController.h>

@@ -8,7 +8,7 @@
  * Reads analog values from a potentiometer (VR) connected to ESP32/Arduino ADC pin.
  * Provides convenient methods for reading, mapping, and converting analog values.
  * 
- * Hardware connection (ESP32/ICON-32):
+ * Hardware connection (ESP32):
  * - VR Pin 1 → 3.3V (NOT 5V on ESP32!)
  * - VR Pin 2 (Wiper/Center) → GPIO ADC pin (34, 35, 36, 39, etc.)
  * - VR Pin 3 → GND

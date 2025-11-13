@@ -8,7 +8,6 @@
  * TemperatureSensor
  * Wrapper class for DHT11/DHT22 temperature and humidity sensors.
  * Provides convenient methods for reading, status checking, and threshold management.
- * Designed for EP5 curriculum - Smart Fan Control with Hysteresis.
  * 
  * Hardware requirements:
  * - DHT11 or DHT22 sensor

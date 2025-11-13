@@ -75,7 +75,7 @@ Safe relay control library for controlling external loads via transistor driver 
 - Support for active-high and active-low relay modules
 - Built-in state management
 - Safe default (relay starts OFF)
-- Designed for EP3 curriculum (relay & transistor circuits)
+- Designed for relay & transistor circuits
 
 **Quick Example:**
 ```cpp
@@ -109,7 +109,7 @@ Analog input library for reading potentiometers (VR) with built-in mapping and P
 - Built-in percentage conversion (0-100%)
 - Custom range mapping
 - Examples for LED brightness control via PWM
-- Designed for EP4 curriculum (analog control with VR)
+- Designed for analog control with VR
 
 **Quick Example:**
 ```cpp
@@ -143,7 +143,7 @@ DHT11/DHT22 temperature and humidity sensor library with smart control features 
 - Temperature (°C/°F) and humidity (%RH) reading
 - Hysteresis threshold management
 - Temperature level detection (COOL/WARM/HOT)
-- Designed for EP5 curriculum (Smart Fan Control)
+- Designed for Smart Fan Control
 
 **Quick Example:**
 ```cpp
@@ -174,6 +174,39 @@ void loop() {
 
 ---
 
+### 6. DigitalLogic
+Interface (ESP32) with digital logic ICs (74xx/CD4xxx series) for education and hybrid systems.
+
+**Features:**
+- Control logic gates (7400, 7404, 7408, 7432, 7486)
+- Clock generation for counters (7473, 7493)
+- BCD-to-7-segment decoder control (CD4511)
+- Complete counter controller with reset
+- Educational examples with truth tables and pinouts
+
+**Quick Example:**
+```cpp
+#include <DigitalLogic.h>
+
+// Create BCD encoder for CD4511
+BCDEncoder display(19, 18, 5, 17);  // A,B,C,D pins
+
+void setup() {
+  display.begin();
+}
+
+void loop() {
+  for (int i = 0; i <= 9; i++) {
+    display.displayDigit(i);  // Display on 7-segment
+    delay(500);
+  }
+}
+```
+
+[Full documentation →](DigitalLogic/README.md)
+
+---
+
 ## Installation
 
 ### Arduino IDE
@@ -186,6 +219,7 @@ void loop() {
    cp -r RelayController ~/Arduino/libraries/
    cp -r PotentiometerController ~/Arduino/libraries/
    cp -r TemperatureSensor ~/Arduino/libraries/
+   cp -r DigitalLogic ~/Arduino/libraries/
    ```
 3. Restart Arduino IDE
 4. Open examples via **File → Examples → [Library Name]**
@@ -201,6 +235,7 @@ lib_deps =
     file:///path/to/Micro-Docs/RelayController
     file:///path/to/Micro-Docs/PotentiometerController
     file:///path/to/Micro-Docs/TemperatureSensor
+    file:///path/to/Micro-Docs/DigitalLogic
     DHT sensor library
     Adafruit Unified Sensor
 ```
@@ -213,6 +248,7 @@ ln -s /path/to/Micro-Docs/Button
 ln -s /path/to/Micro-Docs/RelayController
 ln -s /path/to/Micro-Docs/PotentiometerController
 ln -s /path/to/Micro-Docs/TemperatureSensor
+ln -s /path/to/Micro-Docs/DigitalLogic
 ```
 
 ---
@@ -276,6 +312,20 @@ Micro-Docs/
 │   │   ├── SmartFan_Hysteresis/
 │   │   ├── SmartFan_ManualOverride/
 │   │   └── TempLevel_Indicator/
+│   ├── library.properties
+│   ├── README.md
+│   └── keywords.txt
+│
+├── DigitalLogic/
+│   ├── src/
+│   │   ├── DigitalLogic.h
+│   │   └── DigitalLogic.cpp
+│   ├── examples/
+│   │   ├── LogicGateTester/
+│   │   ├── ClockGenerator_Demo/
+│   │   ├── BinaryCounter_7493/
+│   │   ├── SevenSegment_CD4511/
+│   │   └── SmartCounter/
 │   ├── library.properties
 │   ├── README.md
 │   └── keywords.txt
@@ -437,6 +487,28 @@ Each library includes example sketches in the `examples/` directory.
 | `bool isAboveHighThreshold()` | Check if temp >= high threshold |
 | `bool isBelowLowThreshold()` | Check if temp <= low threshold |
 | `TempLevel getTemperatureLevel(...)` | Get COOL/WARM/HOT level |
+
+### DigitalLogic
+
+| Method | Description |
+|--------|-------------|
+| **LogicGate** | |
+| `LogicGate(pinA, pinB, type)` | Two-input gate constructor |
+| `void setInputs(a, b)` | Set gate inputs |
+| `bool calculateOutput()` | Calculate expected output |
+| **ClockGenerator** | |
+| `ClockGenerator(pin)` | Constructor |
+| `void setFrequency(freq)` | Set frequency (1-1000 Hz) |
+| `void start()` | Start clock |
+| `void stop()` | Stop clock |
+| `void update()` | Update clock (call in loop) |
+| **BCDEncoder** | |
+| `BCDEncoder(pinA, pinB, pinC, pinD)` | Constructor |
+| `void displayDigit(digit)` | Display 0-9 on 7-segment |
+| **CounterController** | |
+| `CounterController(clkPin, rstPin)` | Constructor |
+| `void reset()` | Reset counter to 0 |
+| `void singleStep()` | Single count pulse |
 
 ---
 

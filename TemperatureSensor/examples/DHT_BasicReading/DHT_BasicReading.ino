@@ -4,13 +4,13 @@
  * Basic temperature and humidity reading from DHT11 sensor.
  * Displays values every second in Serial Monitor.
  * 
- * Hardware (ESP32/ICON-32):
+ * Hardware (ESP32):
  * - DHT11 VCC → 3.3V (or 5V)
  * - DHT11 GND → GND
  * - DHT11 DATA → GPIO 4
  * 
  * Circuit:
- *   ICON-32          DHT11
+ *            DHT11
  *   ┌─────────┐      ┌────┐
  *   │ 3.3V ───┼──────┤ VCC│
  *   │         │      │    │
@@ -24,11 +24,6 @@
  * - Adafruit Unified Sensor
  * 
  * Install via: Tools → Manage Libraries → Search "DHT"
- * 
- * Learning objectives (EP5):
- * - Understand DHT11 sensor operation
- * - Read temperature and humidity
- * - Handle sensor errors
  */
 
 #include <TemperatureSensor.h>
