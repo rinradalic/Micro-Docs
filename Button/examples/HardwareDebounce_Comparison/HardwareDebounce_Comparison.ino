@@ -70,7 +70,7 @@ unsigned long lastButton1Event = 0;
 unsigned long lastButton2Event = 0;
 
 // ==================== ISR Functions ====================
-void ARDUINO_ISR_ATTR button1ISR() {
+void button1ISR() {
   button1RawEvents++;
   unsigned long now = millis();
   if (now - lastButton1Event < 10) {  // ถ้าเกิดซ้ำภายใน 10ms = bounce
@@ -79,7 +79,7 @@ void ARDUINO_ISR_ATTR button1ISR() {
   lastButton1Event = now;
 }
 
-void ARDUINO_ISR_ATTR button2ISR() {
+void button2ISR() {
   button2RawEvents++;
   unsigned long now = millis();
   if (now - lastButton2Event < 10) {  // ถ้าเกิดซ้ำภายใน 10ms = bounce

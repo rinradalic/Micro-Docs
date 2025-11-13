@@ -46,7 +46,7 @@ const unsigned long DEBOUNCE_TIME = 150;
  * 3. ทำงานสั้น เร็ว
  * 4. แค่ตั้งธง (flag) แล้วไปประมวลผลใน loop()
  */
-void ARDUINO_ISR_ATTR handleButtonPress() {
+void handleButtonPress() {
   unsigned long now = millis();
   
   // Software debounce แบบง่าย - เช็คว่าห่างจากครั้งก่อนพอหรือยัง

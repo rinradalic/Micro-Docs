@@ -49,7 +49,7 @@ int pressCount = 0;
  * - แค่จำเวลาและตั้งธง
  * - ให้ loop() ไปตรวจสอบต่อ
  */
-void ARDUINO_ISR_ATTR handleButtonInterrupt() {
+void handleButtonInterrupt() {
   rawInterruptFlag = true;
   rawInterruptTime = millis();
 }
