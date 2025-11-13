@@ -1,5 +1,24 @@
+# Button Library Keywords
+
+# Classes (KEYWORD1)
 Button	KEYWORD1
+AdvancedButton	KEYWORD1
+
+# Methods (KEYWORD2)
 begin	KEYWORD2
 update	KEYWORD2
 wasPressed	KEYWORD2
 isPressed	KEYWORD2
+
+# AdvancedButton Methods (KEYWORD2)
+getPressedDuration	KEYWORD2
+setDebounceTime	KEYWORD2
+setDoubleClickWindow	KEYWORD2
+setLongPressThreshold	KEYWORD2
+
+# AdvancedButton Event Flags (KEYWORD3)
+singleClick	KEYWORD3
+doubleClick	KEYWORD3
+longPress	KEYWORD3
+pressed	KEYWORD3
+released	KEYWORD3
