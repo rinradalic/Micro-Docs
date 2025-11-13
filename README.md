@@ -135,6 +135,45 @@ void loop() {
 
 ---
 
+### 5. TemperatureSensor
+DHT11/DHT22 temperature and humidity sensor library with smart control features and hysteresis support.
+
+**Features:**
+- Simple OOP interface for DHT sensors
+- Temperature (°C/°F) and humidity (%RH) reading
+- Hysteresis threshold management
+- Temperature level detection (COOL/WARM/HOT)
+- Designed for EP5 curriculum (Smart Fan Control)
+
+**Quick Example:**
+```cpp
+#include <TemperatureSensor.h>
+#include <RelayController.h>
+
+TemperatureSensor sensor(4, DHT11);
+RelayController fan(26);
+
+void setup() {
+  sensor.begin();
+  sensor.setThresholds(30.0, 28.0); // ON at 30°C, OFF at 28°C
+  fan.begin();
+}
+
+void loop() {
+  if (sensor.read()) {
+    if (sensor.isAboveHighThreshold()) fan.on();
+    if (sensor.isBelowLowThreshold()) fan.off();
+  }
+  delay(1000);
+}
+```
+
+[Full documentation →](TemperatureSensor/README.md)
+
+**Required:** Install "DHT sensor library" and "Adafruit Unified Sensor" via Arduino Library Manager.
+
+---
+
 ## Installation
 
 ### Arduino IDE
@@ -146,6 +185,7 @@ void loop() {
    cp -r Button ~/Arduino/libraries/
    cp -r RelayController ~/Arduino/libraries/
    cp -r PotentiometerController ~/Arduino/libraries/
+   cp -r TemperatureSensor ~/Arduino/libraries/
    ```
 3. Restart Arduino IDE
 4. Open examples via **File → Examples → [Library Name]**
@@ -160,6 +200,9 @@ lib_deps =
     file:///path/to/Micro-Docs/Button
     file:///path/to/Micro-Docs/RelayController
     file:///path/to/Micro-Docs/PotentiometerController
+    file:///path/to/Micro-Docs/TemperatureSensor
+    DHT sensor library
+    Adafruit Unified Sensor
 ```
 
 Or use symbolic links:
@@ -169,6 +212,7 @@ ln -s /path/to/Micro-Docs/LEDController
 ln -s /path/to/Micro-Docs/Button
 ln -s /path/to/Micro-Docs/RelayController
 ln -s /path/to/Micro-Docs/PotentiometerController
+ln -s /path/to/Micro-Docs/TemperatureSensor
 ```
 
 ---
@@ -219,6 +263,19 @@ Micro-Docs/
 │   │   ├── VR_LED_Brightness/
 │   │   ├── VR_DualLED_Control/
 │   │   └── VR_RunningLight_Speed/
+│   ├── library.properties
+│   ├── README.md
+│   └── keywords.txt
+│
+├── TemperatureSensor/
+│   ├── src/
+│   │   ├── TemperatureSensor.h
+│   │   └── TemperatureSensor.cpp
+│   ├── examples/
+│   │   ├── DHT_BasicReading/
+│   │   ├── SmartFan_Hysteresis/
+│   │   ├── SmartFan_ManualOverride/
+│   │   └── TempLevel_Indicator/
 │   ├── library.properties
 │   ├── README.md
 │   └── keywords.txt
@@ -311,6 +368,7 @@ Each library includes example sketches in the `examples/` directory.
 - **Button**: A push button connected to a GPIO pin (with or without external pull-up)
 - **RelayController**: Relay module OR transistor (NPN) + relay coil + flyback diode + resistor
 - **PotentiometerController**: Potentiometer (VR) connected to ADC pin (use 3.3V on ESP32!)
+- **TemperatureSensor**: DHT11 or DHT22 sensor (requires Adafruit DHT library)
 
 ---
 
@@ -363,6 +421,22 @@ Each library includes example sketches in the `examples/` directory.
 | `int readMapped(int min, int max)` | Read and map to custom range |
 | `int getRaw() const` | Get last raw value without reading |
 | `int getMaxRaw() const` | Get ADC resolution (4095 or 1023) |
+
+### TemperatureSensor
+
+| Method | Description |
+|--------|-------------|
+| `TemperatureSensor(uint8_t pin, uint8_t type=DHT11)` | Constructor with pin and sensor type |
+| `void begin()` | Initialize sensor (call in `setup()`) |
+| `bool read()` | Read temperature and humidity (returns true if successful) |
+| `float getTemperature()` | Get temperature in Celsius |
+| `float getTemperatureF()` | Get temperature in Fahrenheit |
+| `float getHumidity()` | Get humidity in %RH |
+| `bool isValid()` | Check if last reading was valid |
+| `void setThresholds(float high, float low)` | Set hysteresis thresholds |
+| `bool isAboveHighThreshold()` | Check if temp >= high threshold |
+| `bool isBelowLowThreshold()` | Check if temp <= low threshold |
+| `TempLevel getTemperatureLevel(...)` | Get COOL/WARM/HOT level |
 
 ---
 

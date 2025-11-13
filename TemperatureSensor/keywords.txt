@@ -1,0 +1,16 @@
+TemperatureSensor	KEYWORD1
+TempLevel	KEYWORD1
+TEMP_COOL	LITERAL1
+TEMP_WARM	LITERAL1
+TEMP_HOT	LITERAL1
+begin	KEYWORD2
+read	KEYWORD2
+getTemperature	KEYWORD2
+getTemperatureF	KEYWORD2
+getHumidity	KEYWORD2
+isValid	KEYWORD2
+setThresholds	KEYWORD2
+isAboveHighThreshold	KEYWORD2
+isBelowLowThreshold	KEYWORD2
+getTemperatureLevel	KEYWORD2
+getTemperatureLevelString	KEYWORD2
