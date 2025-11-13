@@ -67,6 +67,40 @@ void loop() {
 
 ---
 
+### 3. RelayController
+Safe relay control library for controlling external loads via transistor driver circuits or relay modules.
+
+**Features:**
+- Simple on/off/toggle control
+- Support for active-high and active-low relay modules
+- Built-in state management
+- Safe default (relay starts OFF)
+- Designed for EP3 curriculum (relay & transistor circuits)
+
+**Quick Example:**
+```cpp
+#include <RelayController.h>
+
+RelayController relay(26); // GPIO26
+
+void setup() {
+  relay.begin();
+}
+
+void loop() {
+  relay.on();
+  delay(1000);
+  relay.off();
+  delay(1000);
+}
+```
+
+[Full documentation →](RelayController/README.md)
+
+⚠️ **Safety Warning**: When working with relays and external loads, always follow proper safety guidelines. Use low-voltage loads (5V/6V) for testing. For AC loads (220V), use opto-isolated modules and get adult supervision.
+
+---
+
 ## Installation
 
 ### Arduino IDE
@@ -76,6 +110,7 @@ void loop() {
    ```bash
    cp -r LEDController ~/Arduino/libraries/
    cp -r Button ~/Arduino/libraries/
+   cp -r RelayController ~/Arduino/libraries/
    ```
 3. Restart Arduino IDE
 4. Open examples via **File → Examples → [Library Name]**
@@ -88,12 +123,15 @@ Add to your `platformio.ini`:
 lib_deps = 
     file:///path/to/Micro-Docs/LEDController
     file:///path/to/Micro-Docs/Button
+    file:///path/to/Micro-Docs/RelayController
 ```
 
 Or use symbolic links:
 ```bash
 cd your-project/lib
 ln -s /path/to/Micro-Docs/LEDController
+ln -s /path/to/Micro-Docs/Button
+ln -s /path/to/Micro-Docs/RelayController
 ln -s /path/to/Micro-Docs/Button
 ```
 
@@ -108,8 +146,8 @@ Micro-Docs/
 │   │   ├── LEDController.h
 │   │   └── LEDController.cpp
 │   ├── examples/
-│   │   └── LEDControllerExample/
-│   │       └── LEDControllerExample.ino
+│   │   ├── LEDControllerExample/
+│   │   └── StateMachineExample/
 │   ├── library.properties
 │   ├── README.md
 │   └── keywords.txt
@@ -120,10 +158,24 @@ Micro-Docs/
 │   │   └── Button.cpp
 │   ├── examples/
 │   │   └── ButtonExample/
-│   │       └── ButtonExample.ino
 │   ├── library.properties
 │   ├── README.md
 │   └── keywords.txt
+│
+├── RelayController/
+│   ├── src/
+│   │   ├── RelayController.h
+│   │   └── RelayController.cpp
+│   ├── examples/
+│   │   ├── RelayBasicExample/
+│   │   ├── RelayButtonControl/
+│   │   └── RelayTemperatureControl/
+│   ├── library.properties
+│   ├── README.md
+│   └── keywords.txt
+│
+├── examples/
+│   └── StateMachineStandalone/
 │
 └── README.md (this file)
 ```
@@ -208,6 +260,7 @@ Each library includes example sketches in the `examples/` directory.
 **Hardware requirements:**
 - **LEDController**: Any board with LED_BUILTIN or external LED on a GPIO pin
 - **Button**: A push button connected to a GPIO pin (with or without external pull-up)
+- **RelayController**: Relay module OR transistor (NPN) + relay coil + flyback diode + resistor
 
 ---
 
@@ -236,6 +289,18 @@ Each library includes example sketches in the `examples/` directory.
 | `void update()` | Update button state (call in `loop()`) |
 | `bool wasPressed()` | Returns true once per press |
 | `bool isPressed() const` | Returns current pressed state |
+
+### RelayController
+
+| Method | Description |
+|--------|-------------|
+| `RelayController(uint8_t pin, bool invert=false)` | Constructor - pin and logic inversion |
+| `void begin()` | Initialize relay (call in `setup()`) |
+| `void on()` | Turn relay ON (energize) |
+| `void off()` | Turn relay OFF (de-energize) |
+| `void toggle()` | Toggle relay state |
+| `bool isOn() const` | Returns true if relay is ON |
+| `void setState(bool state)` | Set relay to specific state |
 
 ---
 
